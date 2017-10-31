@@ -1,0 +1,46 @@
+#! /bin/bash
+
+for file in $(ls *.h)
+do
+	ci $file
+done
+for file in $(ls *.c)
+do
+	ci $file
+done
+for file in $(ls *.h,v)
+do
+	co $file
+done
+for file in $(ls *.c,v)
+do
+	co $file
+done
+if ( make )
+then 
+	echo "Make Sucessfull"
+	read -n1 -p "Do you want to run application(y/n):"
+	echo 
+	if [ $REPLY = y ]
+	then
+		./ll
+	else
+		echo "Good Bye"
+	fi
+fi
+read -n1 -p "Do you want to edit the file (y/n):"
+if [ $REPLY = y ]
+then
+	for file in $(ls *.h,v)
+	do
+		co -l $file
+	done
+	for file in $(ls *.c,v)
+	do
+		co -l $file
+	done
+	
+fi
+echo
+rm -rf *.o
+rm -rf ll
