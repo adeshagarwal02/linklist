@@ -5,8 +5,8 @@ int mainmenu()
 	int choice;
 	printf("%s:start\n",__func__);
 	printf("___Main Meanu___\n");	
-	printf("1.___Create Linklist__\n");
-	printf("2.___InsertNode__\n");
+	printf("1.___Create Linklist___\n");
+	printf("2.___InsertNode___\n");
 	printf("3.___sortlinklist___\n");
 	printf("4.___DeleteNode__\n");
 	printf("5.___Display__\n");
